@@ -1,0 +1,6 @@
+.glyphicon  {
+    cursor: pointer;
+}
+.glyphicon.glyphicon-trash {
+    margin-left: 30px;
+}
