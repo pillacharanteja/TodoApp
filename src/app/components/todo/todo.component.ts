@@ -83,6 +83,7 @@ export class TodoComponent implements OnInit {
       .subscribe(resp => {
         if (resp) {
           this.alertService.success("Successfully created");
+          window.location.reload();
         }
       },
         error => {
@@ -98,6 +99,7 @@ export class TodoComponent implements OnInit {
       .subscribe(resp => {
         if (resp) {
           this.alertService.success("Successfully updated");
+          window.location.reload();
         }
       },
         error => {
@@ -113,22 +115,22 @@ export class TodoComponent implements OnInit {
       parent_id: [''],
       name: ['', Validators.required],
       description: [''],
-      subTodoList: new FormArray([]),
+      // subTodoList: new FormArray([]),
       isFavourite: ["false"],
     });
   }
-  addSubTodoList() {
-    this.subTodoList.controls.push(
-      this.formBuilder.group({
-        id: [''],
-        parent_id: [''],
-        name: ['', Validators.required],
-        description: [''],
-        subTodoList: new FormArray([]),
-        isFavourite: [false + ''],
-      })
-    );
-  }
+  // addSubTodoList() {
+  //   this.subTodoList.controls.push(
+  //     this.formBuilder.group({
+  //       id: [''],
+  //       parent_id: [''],
+  //       name: ['', Validators.required],
+  //       description: [''],
+  //       subTodoList: new FormArray([]),
+  //       isFavourite: [false + ''],
+  //     })
+  //   );
+  // }
 
   /**
    * Responsible for patching the form/ prefill form with selected todo details.
@@ -152,6 +154,7 @@ export class TodoComponent implements OnInit {
       .subscribe(resp => {
         if (resp) {
           this.alertService.success("Added to favourties");
+          window.location.reload();
         }
       },
         error => {
@@ -166,6 +169,7 @@ export class TodoComponent implements OnInit {
     this.apiService.deleteTodo(todoId).subscribe(resp => {
       if (resp) {
         this.alertService.success("Successfully deleted");
+        window.location.reload();
       }
     },
       error => {

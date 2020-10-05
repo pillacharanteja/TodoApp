@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h3>{{todoForm.value | json }}</h3>
+    <!-- <h3>{{todoForm.value | json }}</h3> -->
     <button data-toggle="modal" (click)="resetForm();"data-target="#formModal">Add Todo</button>
     <table class="table">
         <thead class="thead-dark">
@@ -127,8 +127,8 @@
                                         <div class="form-group">
                                             <label>Is SUbtodo Of</label>
                                             <select formControlName="parent_id">
-                                                <option>None</option>
-                                                <option *ngFor="let entry of todoMapForDrowpDown | keyvalue" value="entry.key">
+                                                <option value="0">None</option>
+                                                <option *ngFor="let entry of todoMapForDrowpDown | keyvalue" value="{{entry.key}}">
                                                     {{entry.value}}
                                                 </option>
                                             </select>
